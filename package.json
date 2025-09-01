@@ -1,0 +1,36 @@
+{
+  "name": "cocktailpartner",
+  "version": "1.0.0",
+  "description": "Cocktail search system",
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "scrape": "node scripts/scraper.js",
+    "export": "next build && next export"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Ikeponias/CocktailPartner.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Ikeponias/CocktailPartner/issues"
+  },
+  "homepage": "https://github.com/Ikeponias/CocktailPartner#readme",
+  "dependencies": {
+    "@heroicons/react": "^1.0.6",
+    "axios": "^1.11.0",
+    "cheerio": "^1.1.2",
+    "next": "^15.5.2",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
+  },
+  "devDependencies": {
+    "autoprefixer": "^10.4.15",
+    "postcss": "^8.4.28",
+    "tailwindcss": "^3.3.3"
+  }
+}
