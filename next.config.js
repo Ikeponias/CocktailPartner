@@ -3,7 +3,6 @@ const nextConfig = {
   reactStrictMode: true,
   output: 'export',
   basePath: '/CocktailPartner',
-  assetPrefix: '/CocktailPartner/',
   images: {
     unoptimized: true
   },
