@@ -6,8 +6,7 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "scrape": "node scripts/scraper.js",
-    "export": "next build && next export"
+    "export": "next export"
   },
   "repository": {
     "type": "git",
