@@ -1,13 +1,13 @@
 import { useState, useEffect } from 'react';
+import Head from 'next/head';
 import cocktailsData from '../data/cocktails.json';
-import { MoonIcon, SunIcon, TranslateIcon } from '@heroicons/react/solid';
+import { TranslateIcon } from '@heroicons/react/solid';
 
 export default function Home() {
   const [searchTerm, setSearchTerm] = useState('');
   const [searchType, setSearchType] = useState('name');
   const [results, setResults] = useState([]);
   const [isJapanese, setIsJapanese] = useState(true);
-  const [isDark, setIsDark] = useState(true);
 
   const searchCocktails = (term) => {
     if (!term.trim()) {
@@ -44,22 +44,15 @@ export default function Home() {
     searchCocktails(searchTerm);
   }, [searchTerm, searchType]);
 
-  useEffect(() => {
-    // ダークモード設定
-    if (isDark) {
-      document.documentElement.classList.add('dark');
-    } else {
-      document.documentElement.classList.remove('dark');
-    }
-  }, []);
-
-  const toggleDarkMode = () => {
-    setIsDark(!isDark);
-    document.documentElement.classList.toggle('dark');
-  };
-
   return (
-    <div className="min-h-screen bg-gradient-to-br from-dark-900 to-dark-800 text-dark-100">
+    <>
+      <Head>
+        <title>CocktailPartner - カクテルレシピ検索</title>
+        <meta name="description" content="カクテル名や材料からレシピを検索できるカクテルパートナーアプリ" />
+        <meta name="keywords" content="カクテル,レシピ,検索,cocktail,recipe" />
+        <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🍸</text></svg>" />
+      </Head>
+      <div className="min-h-screen bg-gradient-to-br from-dark-900 to-dark-800 text-dark-100">
       <div className="container mx-auto px-4 py-8">
         {/* ヘッダー部分 */}
         <div className="flex justify-between items-center mb-8">
@@ -72,17 +65,7 @@ export default function Home() {
               className="btn btn-secondary"
             >
               <TranslateIcon className="h-5 w-5 inline-block mr-2" />
-              {isJapanese ? 'English' : '日本語'}
-            </button>
-            <button
-              onClick={toggleDarkMode}
-              className="btn btn-secondary"
-            >
-              {isDark ? (
-                <SunIcon className="h-5 w-5" />
-              ) : (
-                <MoonIcon className="h-5 w-5" />
-              )}
+              {isJapanese ? '日本語' : 'English'}
             </button>
           </div>
         </div>
@@ -191,5 +174,6 @@ export default function Home() {
         )}
       </div>
     </div>
+    </>
   );
 }
